@@ -1,4 +1,3 @@
-// import '../node_modules/spinkit/spinkit.css';
 
 import refs from './refs';
 

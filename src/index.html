@@ -31,17 +31,17 @@
                 <nav>
                     <ul class="site-nav__list">
                         <li class="site-nav__item">
-                            <button class="site-nav__button is-active js-home" data-request="home">Home</button>
+                            <button class="site-nav__button is-active js-home" data-request="home" aria-label="home">Home</button>
                         </li>
                         <li class="site-nav__item">
-                            <button class="site-nav__button js-library" data-request="library">My library</button>
+                            <button class="site-nav__button js-library" data-request="library" aria-label="my library">My library</button>
                         </li>
                     </ul>
                 </nav>
             </div>
             <form class="search-form">
-                <input class="search-form__input" type="text" name="query" placeholder="Movie search" autocomplete="off" />
-                <button type="submit" class="search-form__button" aria-label="Search">
+                <input class="search-form__input" type="text" name="query" placeholder="Movie search" aria-label="movie search" autocomplete="off" />
+                <button type="submit" class="search-form__button" aria-label="search">
                     <svg class="search-form__icon" width="12" height="12">
                         <use href="./images/sprite.svg#icon-search"></use>
                     </svg>
@@ -56,10 +56,10 @@
 
             <ul class="library__list">
                 <li class="library__item">
-                    <button class="button button--library" data-request="watched">Watched</button>
+                    <button class="button button--library" data-request="watched" aria-label="watched">Watched</button>
                 </li>
                 <li class="library__item">
-                    <button class="button button--library is-active" data-request="queue">Queue</button>
+                    <button class="button button--library is-active" data-request="queue" aria-label="queue">Queue</button>
                 </li>
             </ul>
         </div>
@@ -89,7 +89,7 @@
         </section>
 
         <div class="back_to_top">
-            <img src="./images/up.svg" />
+            <img src="./images/up.svg" alt="back to top"/>
         </div>
     </main>
 
@@ -149,10 +149,10 @@
                     <h3 class="description-title">ABOUT</h3>
                     <p class="description-text"></p>
                     <ul class="list button-list">
-                        <button class="button modal__btn modal__btn--watched">
+                        <button class="button modal__btn modal__btn--watched" aria-label="add to watched">
                 ADD TO WATCHED
               </button>
-                        <button class="button modal__btn modal__btn--queue">
+                        <button class="button modal__btn modal__btn--queue" aria-label="add to queue">
                 ADD TO QUEUE
               </button>
                     </ul>
@@ -429,7 +429,7 @@
                     </li>
                     </ul>
 
-                    <button type="button" class="lightbox__button" data-action="close-lightbox">
+                    <button type="button" class="lightbox__button" data-action="close-lightbox" aria-label="close-button">
                 <svg class="icon">
                   <use href="./images/sprite.svg#icon-close"></use>
                 </svg>
