@@ -32,6 +32,7 @@ function createArrayPaginationMobile(numberOfPages, activePage, totalPages) {
     elem === activePage ? { elem, isActive: true } : { elem, isActive: false },
   );
 }
+
 function createArrayPagination(numberOfPages, activePage, totalPages) {
   let arrayOfPages;
   const centerOfPages = Math.ceil(numberOfPages / 2);
@@ -134,7 +135,6 @@ export default {
       return activePage > 1 ? activePage - 1 : 1;
     }
     if (eventTarget.classList.contains('next')) {
-      // console.log(activePage, totalPages);
       return activePage < totalPages ? activePage + 1 : totalPages;
     }
     return +eventTarget.textContent;
@@ -148,6 +148,7 @@ export default {
     let itemStart = itemEnd - perPage + 1;
 
     const currentPage = Math.floor(itemStart / FETCH) + 1;
+
     const currentNumStart =
       itemStart % FETCH ? (itemStart % FETCH) - 1 : FETCH - 1;
 
@@ -164,6 +165,9 @@ export default {
       resultArray = [
         { page: currentPage, numStart: currentNumStart, numEnd: undefined },
       ];
+      if (FETCH - currentNumStart === perPage) {
+        return resultArray;
+      }
     }
 
     const nextPage = currentPage + 1;
