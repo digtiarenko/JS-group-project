@@ -196,16 +196,19 @@
 
 @keyframes slideUpOut {
     0% {
-        transform: translateY(0%);
+        transform: scale(1);
+        opacity: 1;
     }
-    30% {
-        transform: translateY(2%);
+    60% {
+        transform: scale(0.9);
+        opacity: 1;
     }
-    55% {
-        transform: translateY(-4%);
+    80% {
+        transform: scale(1.1);
     }
     100% {
-        transform: translateY(100%);
+        transform: scale(0);
+        opacity: 0;
     }
 }
 
@@ -221,21 +224,18 @@
 
 @keyframes slideUpIn {
     0% {
-        transform: translateY(100%);
+        transform: scale(0);
+        opacity: 0.0;
     }
-    50% {
-        transform: translateY(-8%);
-    }
-    65% {
-        transform: translateY(4%);
+    60% {
+        transform: scale(1.1);
     }
     80% {
-        transform: translateY(-4%);
-    }
-    95% {
-        transform: translateY(2%);
+        transform: scale(0.9);
+        opacity: 1;
     }
     100% {
-        transform: translateY(0%);
+        transform: scale(1);
+        opacity: 1;
     }
 }
