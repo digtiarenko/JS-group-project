@@ -166,9 +166,6 @@
 }
 
 .header__logo {
-  width: 24px;
-  height: 24px;
-  background-image: url(../images/film.svg);
   cursor: pointer;
 }
 
@@ -257,10 +254,7 @@
 
   &__icon {
     position: absolute;
-    width: 12px;
-    height: 12px;
-    background-repeat: no-repeat;
-    background-image: url(../images/search.svg);
+
   }
 }
 
