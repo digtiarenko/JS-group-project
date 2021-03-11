@@ -148,16 +148,38 @@
     text-align: left;
     width: 70%;
     &__name {
-        @include font(500, 18px, 1.4);
         color: $text-second;
         margin: 0;
         padding-left: 10px;
+        @include for-size(mobile-only) {
+            @include font(normal, 14px, 1.14);
+        }
+        @include for-size(mobile) {
+            @include font(normal, 14px, 1.14);
+        }
+        @include for-size(tablet) {
+            @include font(500, 18px, 1.18);
+        }
+        @include for-size(desktop) {
+            @include font(500, 18px, 1.18);
+        }
     }
     &__subtitle {
-        @include font(normal, 14px, 1.4);
         color: $text-accent;
         padding-left: 10px;
         padding-top: 4px;
+        @include for-size(mobile-only) {
+            @include font(normal, 12px, 1.12);
+        }
+        @include for-size(mobile) {
+            @include font(normal, 12px, 1.12);
+        }
+        @include for-size(tablet) {
+            @include font(normal, 14px, 1.14);
+        }
+        @include for-size(desktop) {
+            @include font(normal, 14px, 1.14);
+        }
     }
 }
 
