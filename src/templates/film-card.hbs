@@ -12,13 +12,13 @@
               <div class="film__info">
                 <ul class="film__genres" >
                   {{#each genres}}
-                  {{#if @last}} <li class="film__list__genre"> {{name}}&thinsp;</li>
+                  {{#if @last}} <li class="film__list__genre">{{name}}&#32;</li>
                   {{else}}
-                                <li class="film__list__genre"> {{name}},&thinsp;</li>
+                                <li class="film__list__genre">{{name}},&#32;</li>
                   {{/if}}
-                 {{/each}}|&ensp;{{release_date}}&ensp;</ul>
+                 {{/each}}|&#32;{{release_date}}&#32;</ul>
                   <span class="film__average">{{vote_average}}</span></div>
             </div>
-          </вa>
+          </div>
         </li>
         {{/each}}
