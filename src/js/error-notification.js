@@ -1,5 +1,4 @@
 
-
 export default function showErrorNotification(element)  {
     element.style.display = "block";
     setTimeout(() => {
