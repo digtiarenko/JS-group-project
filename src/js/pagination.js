@@ -63,7 +63,6 @@ function createArrayPagination(numberOfPages, activePage, totalPages) {
         return limit - numberOfPages + 3 + k;
       }),
     ];
-
   } else {
     arrayOfPages = [
       1,
@@ -129,7 +128,6 @@ export default {
   },
 
   getActivePageForFetch(eventTarget) {
-
     let activePage = +refs.paginationBox.querySelector('.active').textContent;
 
     if (eventTarget.classList.contains('prev')) {
@@ -143,7 +141,6 @@ export default {
   },
 
   getSettingForFetch(activePage) {
-
     let resultArray = [];
     const perPage = apiService.perPage;
 
@@ -151,7 +148,9 @@ export default {
     let itemStart = itemEnd - perPage + 1;
 
     const currentPage = Math.floor(itemStart / FETCH) + 1;
-    const currentNumStart = (itemStart % FETCH) - 1;
+    const currentNumStart =
+      itemStart % FETCH ? (itemStart % FETCH) - 1 : FETCH - 1;
+
     let currentNumEnd = currentNumStart + perPage;
 
     if (currentNumEnd < FETCH) {
@@ -163,13 +162,14 @@ export default {
     //одна страница
     else {
       resultArray = [
-        { page: currentPage, numStart: currentNumStart, numEnd: FETCH },
+        { page: currentPage, numStart: currentNumStart, numEnd: undefined },
       ];
     }
 
     const nextPage = currentPage + 1;
     const nextNumStart = 0;
-    const nextNumEnd = nextNumStart + perPage - (FETCH - currentNumStart);
+    const nextNumEnd = perPage - (FETCH - currentNumStart);
+
     resultArray = [
       ...resultArray,
       { page: nextPage, numStart: nextNumStart, numEnd: nextNumEnd },
