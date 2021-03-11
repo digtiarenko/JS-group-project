@@ -5,6 +5,7 @@ import { HOME, SEARCH, WATCHED, QUEUE } from './request.js';
 import { load, save, remove } from './storage';
 import showErrorNote from './error-notification';
 import refs from './refs';
+const limit = 20;
 
 export default {
   onSubmitSearchForm(event) {
@@ -26,6 +27,21 @@ export default {
     if (event.target.nodeName !== 'LI' || event.target.textContent === '...') {
       return;
     }
+    const activePaginationPage = pagination.getActivePage();
+    if (
+      activePaginationPage >= limit &&
+      event.target.className === 'pagination__item next'
+    ) {
+      return;
+    }
+
+    if (
+      activePaginationPage === 1 &&
+      event.target.className === 'pagination__item prev'
+    ) {
+      return;
+    }
+
     const pagePagination = pagination.getActivePageForFetch(event.target);
     const fetchSettings = pagination.getSettingForFetch(pagePagination);
     const currentRequest = load('currentRequest');
@@ -46,9 +62,11 @@ export default {
         console.log(Error('Не найден тип текущего запроса'));
     }
   },
-  onClickFilm(event) {
 
-  if (event.target.classList.contains('films__list')){return;}
+  onClickFilm(event) {
+    if (event.target.classList.contains('films__list')) {
+      return;
+    }
     const movieId = event.path.find(
       elem => elem.classList.value === 'film item',
     ).dataset.movieid;
@@ -61,6 +79,7 @@ export default {
     save('currentRequest', req);
     fnFetch.fetchDataLibrary(1, load(req));
   },
+
   onClickWatched() {
     save('currentRequest', WATCHED);
     fnFetch.fetchDataLibrary(1, load('watched'));
@@ -70,6 +89,7 @@ export default {
     save('currentRequest', QUEUE);
     fnFetch.fetchDataLibrary(1, load('queue'));
   },
+
   onClickLogoHome() {
     save('currentRequest', HOME);
     fnFetch.fetchData();
