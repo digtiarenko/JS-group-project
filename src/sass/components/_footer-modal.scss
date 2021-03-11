@@ -10,11 +10,16 @@
     // visibility: hidden;
     pointer-events: none;
     &__body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
         display: flex;
         align-items: center;
         justify-content: center;
+        min-width: 882px;
         min-height: 100%;
-        padding: 20px;
+        z-index: 10;
     }
     &__content {
         color: $text-footer;
@@ -185,57 +190,45 @@
 
 // анимация
 .lightbox__body.slideUpOut {
-    animation-name: slideUpOut;
-    -webkit-animation-name: slideUpOut;
-    animation-duration: 1s;
-    -webkit-animation-duration: 1s;
-    // animation-timing-function: ease;
-    // -webkit-animation-timing-function: ease;
-    visibility: visible !important;
+    animation-name: fade-out;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0.6s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
 }
 
-@keyframes slideUpOut {
+@keyframes fade-out {
     0% {
-        transform: scale(1);
         opacity: 1;
     }
-    60% {
-        transform: scale(0.9);
-        opacity: 1;
-    }
-    80% {
-        transform: scale(1.1);
+    50% {
+        opacity: 0.5;
     }
     100% {
-        transform: scale(0);
-        opacity: 0;
+        opacity: 01;
     }
 }
 
 .lightbox__body.slideUpIn {
-    animation-name: slideUpIn;
-    -webkit-animation-name: slideUpIn;
-    animation-duration: 1s;
-    -webkit-animation-duration: 1s;
-    animation-timing-function: ease;
-    -webkit-animation-timing-function: ease;
-    visibility: visible !important;
+    animation-name: fade-in;
+    animation-duration: 2s;
+    animation-timing-function: normal;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
 }
 
-@keyframes slideUpIn {
+@keyframes fade-in {
     0% {
-        transform: scale(0);
-        opacity: 0.0;
+        opacity: 0;
     }
-    60% {
-        transform: scale(1.1);
-    }
-    80% {
-        transform: scale(0.9);
-        opacity: 1;
+    50% {
+        opacity: 0.5;
     }
     100% {
-        transform: scale(1);
         opacity: 1;
     }
 }
