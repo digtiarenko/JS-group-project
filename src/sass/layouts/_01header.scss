@@ -6,9 +6,8 @@
   color: $text-header;
 }
 
-
 .header-container--home {
-  padding: 46px 20px 97px;
+  padding: 34px 20px 97px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -33,7 +32,7 @@
   }
 
   @include for-size(tablet) {
-    padding: 40px 75px 97px 70px;
+    padding: 30px 75px 97px 70px;
     background-image: linear-gradient(
         to right,
         $color-background,
@@ -56,7 +55,7 @@
   }
 
   @include for-size(desktop) {
-    padding: 40px 70px 97px;
+    padding: 30px 70px 97px;
     background-image: linear-gradient(
         to right,
         $color-background,
@@ -81,7 +80,7 @@
 
 
 .header-container--library {
-    padding: 46px 20px 65px;
+    padding: 34px 20px 65px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -106,7 +105,7 @@
     }
 
     @include for-size(tablet) {
-      padding: 40px 75px 65px 70px;
+      padding: 30px 75px 65px 70px;
       background-image: linear-gradient(
           to right,
           $color-background,
@@ -129,7 +128,7 @@
     }
 
     @include for-size(desktop) {
-      padding: 40px 70px 65px;
+      padding: 30px 70px 65px;
       background-image: linear-gradient(
           to right,
           $color-background,
@@ -178,7 +177,7 @@
     margin-right: 10px;
   }
 }
-// Уточнить.   можно заголовок дисплей-нан прятать или лучше из-хидден?
+
 .header__title {
   display: none;
   font-size: 30px;
