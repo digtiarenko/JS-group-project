@@ -27,6 +27,11 @@
             @content;
         }
     }
+    @else if $range==till-tablet {
+        @media (min-width: 0px) and (max-width: $tablet - 1) {
+            @content;
+        }
+    }
     @else if $range==tablet {
         @media (min-width: $tablet) and (max-width: $desktop - 1) {
             @content;

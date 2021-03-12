@@ -2,7 +2,7 @@
 import refs from './refs';
 
 function nodeCheckClosing(event) {
-    if (event.target.classList.value !== 'backdrop') {
+    if (event.target.dataset.attribute !== 'modal') {
       return
     }
   closingModal();
@@ -27,20 +27,18 @@ function openingModal() {
     refs.addToQueueBtn.innerHTML = 'REMOVE FROM QUEUE';
   }
 
+  refs.backdropModalRef.classList.add('visually-shown');
   refs.backdropModalRef.classList.remove('visually-hidden');
-  refs.modalRef.classList.remove('visually-hidden');
   refs.bodyEl.classList.add('modal-is-open');
-  // console.log('cliked');
   window.addEventListener('keydown', onEscPress);
 
 }
 
 function closingModal() {
-  refs.backdropModalRef.classList.add('visually-hidden');
-  refs.modalRef.classList.add('visually-hidden');
+  refs.backdropModalRef.classList.remove('visually-shown');
   window.removeEventListener('keydown', onEscPress);
   refs.bodyEl.classList.remove('modal-is-open');
-  setTimeout(clearData(),100)
+  setTimeout(clearData, 250)
 }
 
 function clearData () {
