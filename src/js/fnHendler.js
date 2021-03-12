@@ -64,12 +64,12 @@ export default {
   },
 
   onClickFilm(event) {
-    if (event.target.classList.contains('films__list')) {
-      return;
+
+    let movieId;
+    if (event.target.nodeName === 'IMG' || event.target.nodeName === 'DIV') {
+      movieId = event.target.dataset.movieid;
     }
-    const movieId = event.path.find(
-      elem => elem.classList.value === 'film item',
-    ).dataset.movieid;
+
     event.preventDefault();
     fnFetch.fetchDataFilm(movieId);
   },
