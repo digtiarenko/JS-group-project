@@ -20,6 +20,7 @@ function handleClearBtn() {
     save(currentValue, []);
     refs.filmListRef.innerHTML = '';
     refs.clearBtnContainer.style.display = "none";
+    refs.paginationList.innerHTML = '';
     message.messageAboutLibrary();
 }
 
