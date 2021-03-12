@@ -2,9 +2,9 @@
 import refs from './refs';
 
 function nodeCheckClosing(event) {
-    if (event.target.dataset.attribute !== 'modal') {
-      return
-    }
+  if (event.target.dataset.attribute !== 'modal') {
+    return;
+  }
   closingModal();
 }
 
@@ -12,10 +12,11 @@ refs.closeBtn.addEventListener('click', closingModal);
 refs.backdropModalRef.addEventListener('click', nodeCheckClosing);
 refs.filmListRef.addEventListener('click', openingModal);
 
-function openingModal() {
-  if (event.target.classList.contains('films__list')){return;}
-  const id = event.path.find(elem => elem.classList.value === 'film item')
-    .dataset.movieid;
+function openingModal(event) {
+  let id;
+  if (event.target.nodeName === 'IMG' || event.target.nodeName === 'DIV') {
+    id = event.target.dataset.movieid;
+  }
 
   const all = JSON.parse(localStorage.getItem('watched') || '[]');
   if (all.includes(id)) {
@@ -31,17 +32,16 @@ function openingModal() {
   refs.backdropModalRef.classList.remove('visually-hidden');
   refs.bodyEl.classList.add('modal-is-open');
   window.addEventListener('keydown', onEscPress);
-
 }
 
 function closingModal() {
   refs.backdropModalRef.classList.remove('visually-shown');
   window.removeEventListener('keydown', onEscPress);
   refs.bodyEl.classList.remove('modal-is-open');
-  setTimeout(clearData, 250)
+  setTimeout(clearData, 250);
 }
 
-function clearData () {
+function clearData() {
   refs.modalImg.src = '';
   refs.modalTitle.textContent = '';
   refs.rate.textContent = '';
@@ -52,7 +52,6 @@ function clearData () {
   refs.descr.textContent = '';
   refs.addToWatchedBtn.innerHTML = 'ADD TO WATCHED';
   refs.addToQueueBtn.innerHTML = 'ADD TO QUEUE';
-
 }
 
 function onEscPress(event) {
