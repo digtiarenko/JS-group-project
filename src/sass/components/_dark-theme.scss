@@ -22,7 +22,7 @@ body.dark-theme {
     }
     .footer {
         color: $color-light-background;
-        // opacity: 0.7;
+        
         background-image: linear-gradient( to right, $color-background, $color-background), url(../images/mobile/header.jpg);
     }
     .footer__text:last-child {
@@ -60,7 +60,7 @@ body.dark-theme {
     }
     .lightbox__content {
         background-color: $color-bg-dark-theme;
-        opacity: 0.9;
+        opacity: 1;
     }
     .comcontent__name {
         color: $text-header;
