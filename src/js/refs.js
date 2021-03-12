@@ -50,6 +50,7 @@ const refs = {
     spinner: document.querySelector('#spinner'),
     errorNoteRef: document.querySelector('.header__error'),
     messageLibRef: document.querySelector('.films__message'),
+    clearBtn: document.querySelector('[data-request="clear"]'),
 };
 
 export default refs;

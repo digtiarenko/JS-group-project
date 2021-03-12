@@ -23,6 +23,8 @@ import { save } from './js/storage';
 
 import './js/change-header-theme';
 import './js/library-list-hendler';
+import './js/clear-movie-list';
+
 
 
 save('currentRequest', HOME);
