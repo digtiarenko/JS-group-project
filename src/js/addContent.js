@@ -21,12 +21,14 @@ export default {
       const genres =
         genresFilm.length > 2
           ? [...genresFilm.slice(0, 2), { id: 999, name: 'Other' }]
-          : genresFilm;
+          : genresFilm.length
+          ? genresFilm
+          : [...genresFilm.slice(0, 2), { id: 998, name: 'N/A' }];
 
       return {
         ...elem,
         poster_path: elem.poster_path ? pathForImg + elem.poster_path : false,
-        release_date: elem.release_date ? elem.release_date.slice(0, 4) : '',
+        release_date: elem.release_date ? elem.release_date.slice(0, 4) : 'N/A',
         genres,
       };
     });
@@ -49,14 +51,16 @@ export default {
       const genres =
         elem.genres.length > 2
           ? [...elem.genres.slice(0, 2), { id: 999, name: 'Other' }]
-          : elem.genres;
+          : elem.genres.length
+          ? elem.genres
+          : [...elem.genres.slice(0, 2), { id: 998, name: 'N/A' }];
 
       return {
         ...elem,
         poster_path: elem.poster_path
           ? pathForImg + elem.poster_path
           : imgDefault,
-        release_date: elem.release_date ? elem.release_date.slice(0, 4) : '',
+        release_date: elem.release_date ? elem.release_date.slice(0, 4) : 'N/A',
         genres,
       };
     });
