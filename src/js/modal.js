@@ -13,14 +13,14 @@ function updateModalValue(obj) {
   refs.title.textContent = obj.original_title;
   refs.genre.textContent = genresSep(obj);
   refs.descr.textContent = obj.overview;
-  // добавляем id фильмов на кнопки для реализации My Library
+
   refs.addToWatchedBtn.dataset.id = obj.id;
   refs.addToQueueBtn.dataset.id = obj.id;
   genresSep(obj);
   alignHeight();
 }
 
-//  fn для выравнивания элементов списка в модалке при длинном названии фильма
+
 function alignHeight() {
   const item = refs.originalTitle;
   const valueHeight = refs.title.offsetHeight;

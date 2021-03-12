@@ -25,17 +25,17 @@ const refs = {
     addToWatchedBtn: document.querySelector('.modal__btn--watched'),
     addToQueueBtn: document.querySelector('.modal__btn--queue'),
 
-    //  =======
+    
 
     pageLibraryRef: () => document.querySelector('[data-request="library"]'),
 
-    //=======
+    
     divLightbox: document.querySelector('.lightbox'),
     btnClose: document.querySelector('.lightbox__button'),
     modalOpen: document.querySelector('.lightbox__body'),
     openModal: document.querySelector('.js-footer__text'),
 
-    // ========= после перемены Хедера!
+    
 
     siteNavButtons: document.querySelector('.site-nav__list'),
     logoNav: document.querySelector('.logo-container'),

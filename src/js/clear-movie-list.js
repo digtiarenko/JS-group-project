@@ -1,6 +1,5 @@
 import refs from './refs';
 import { load, save } from './storage';
-
 import message from './key-words';
 
 
@@ -10,11 +9,10 @@ export default function clearList() {
     currentValue = load('currentRequest');
 
     if (load(currentValue).length === 0) {
-        refs.clearBtnContainer.style.display = "none";
+        hiddenClearBtn();
         
     } else if (load(currentValue).length !== 0) {
-        refs.clearBtn.textContent = `Clear ${currentValue} list`;
-        refs.clearBtnContainer.style.display = "block";
+        showClearBtn();
     }
 }
 
@@ -23,6 +21,15 @@ function handleClearBtn() {
     refs.filmListRef.innerHTML = '';
     refs.clearBtnContainer.style.display = "none";
     message.messageAboutLibrary();
+}
+
+function hiddenClearBtn() {
+    refs.clearBtnContainer.style.display = "none";
+}
+
+function showClearBtn() {
+    refs.clearBtn.textContent = `clear ${currentValue} list`;
+    refs.clearBtnContainer.style.display = "block";
 }
 
 
