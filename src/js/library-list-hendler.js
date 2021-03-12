@@ -1,4 +1,5 @@
 import refs from './refs';
+import clearList from './clear-movie-list';
 
 
 export default function onLibraryListClick(event) {
@@ -8,6 +9,7 @@ export default function onLibraryListClick(event) {
         return;
     } else if (element.nodeName === 'BUTTON') {
         toggleLibraryBtnClass();
+        clearList();
     }
 }
 
