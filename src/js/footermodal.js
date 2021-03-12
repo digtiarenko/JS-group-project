@@ -1,26 +1,25 @@
 import refs from './refs';
 
+
+
 refs.openModal.addEventListener('click', onOpenModal);
-refs.btnClose.addEventListener('click', onModalClose);
-refs.modalClose.addEventListener('click', onModalCloseDiv);
+refs.btnClose.addEventListener('click', onModalCloseDiv);
+refs.divLightbox.addEventListener('click', closingOnDiv);
 document.addEventListener('keydown', onModalCloseEsc);
 
+function closingOnDiv(event) {
 
-function onModalCloseDiv(event) {
-    refs.modalClose.classList.add('slideUpOut');
-    refs.modalClose.classList.remove('slideUpIn');
-    window.setTimeout(function() {
-        refs.divLightbox.classList.remove('is-open');
-        refs.bodyEl.classList.remove('is-open');
-    }, 500);
+    if (event.target != this) return;
 
+    onModalCloseDiv();
 
 }
 
-function onModalClose(event) {
-    if (event.target.nodeName === 'BUTTON') {
-        onModalCloseDiv();
-    }
+function onModalCloseDiv() {
+    refs.modalOpen.classList.add('slideUpOut');
+    refs.modalOpen.classList.remove('slideUpIn');
+    refs.divLightbox.classList.remove('is-open');
+    refs.bodyEl.classList.remove('is-open');
 }
 
 function onModalCloseEsc(event) {
@@ -30,9 +29,11 @@ function onModalCloseEsc(event) {
 }
 
 function onOpenModal(event) {
-    refs.modalClose.classList.remove('slideUpOut');
+    event.preventDefault();
+    refs.modalOpen.classList.remove('slideUpOut');
     refs.divLightbox.classList.add('is-open');
     refs.bodyEl.classList.add('is-open');
-    refs.modalClose.classList.add('slideUpIn');
+    refs.modalOpen.classList.add('slideUpIn');
 
 }
+export default onModalCloseDiv;
