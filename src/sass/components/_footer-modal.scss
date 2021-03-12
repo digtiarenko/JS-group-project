@@ -10,16 +10,44 @@
     // visibility: hidden;
     pointer-events: none;
     &__body {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 882px;
-        min-height: 100%;
-        z-index: 10;
+        @include for-size(mobile-only) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            padding: 20px
+        }
+        @include for-size(mobile) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+            padding: 20px
+        }
+        @include for-size(tablet) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 882px;
+            min-height: 100%;
+            z-index: 10;
+        }
+        @include for-size(desktop) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 882px;
+            min-height: 100%;
+            z-index: 10;
+        }
     }
     &__content {
         color: $text-footer;
@@ -146,7 +174,6 @@
 
 .comcontent {
     @include font(normal, 16px, 1.16);
-    
     margin: 0;
     padding: 10px;
     text-align: left;
