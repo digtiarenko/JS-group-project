@@ -52,19 +52,16 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            // padding-top: 10px;
         }
         @include for-size(mobile) {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            // padding-top: 10px;
         }
         @include for-size(tablet) {
             display: flex;
             flex-wrap: nowrap;
             justify-content: center;
-            // padding-top: 10px;
         }
         @include for-size(desktop) {
             display: flex;

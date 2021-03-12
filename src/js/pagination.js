@@ -83,7 +83,7 @@ function createArrayPagination(numberOfPages, activePage, totalPages) {
 
 export default {
   addPaginationList(totalHits, activePage) {
-    // console.log('totalHits',totalHits,'activePage',activePage);
+
     if (!totalHits || totalHits <= apiService.perPage) {
       refs.paginationBox.classList.add('is-hidden');
       return;
@@ -160,7 +160,7 @@ export default {
       ];
       return resultArray;
     }
-    //одна страница
+  
     else {
       resultArray = [
         { page: currentPage, numStart: currentNumStart, numEnd: undefined },
