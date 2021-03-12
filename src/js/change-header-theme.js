@@ -21,6 +21,7 @@ function goToHomePage() {
     refs.searchForm.style.display = "block";
     refs.homeHeaderBtn.classList.add('is-active');
     refs.libraryHeaderBtn.classList.remove('is-active');
+    refs.clearBtnContainer.style.display = "none";
     refs.searchForm.reset();
 }
 

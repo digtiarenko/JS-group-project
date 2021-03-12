@@ -1,49 +1,33 @@
 import refs from './refs';
-import { load, save, remove } from './storage';
-import { HOME, SEARCH, WATCHED, QUEUE } from './request';
+import { load, save } from './storage';
+
+import message from './key-words';
 
 
-// const clearBtn = document.querySelector('[data-request="clear"]');
-
-
-// console.log(clearBtn);
-
-
-// if (localStorage.getItem('currentRequest') === "watched" || localStorage.getItem('currentRequest') === "queue") {
-//     clearBtn.style.display = "block";
-// }
+let currentValue;
 
 export default function clearList() {
-    const current = load('currentRequest');
+    currentValue = load('currentRequest');
 
-    console.log(current);
-    
-
-    if ((load(current).length) === 0) {
-        refs.learBtn.style.display = "none";
-        return;
-    } else {
+    if (load(currentValue).length === 0) {
+        refs.clearBtnContainer.style.display = "none";
         
-        refs.clearBtn.textContent = `Clear ${current} list`;
-        refs.clearBtn.style.display = "block";
+    } else if (load(currentValue).length !== 0) {
+        refs.clearBtn.textContent = `Clear ${currentValue} list`;
+        refs.clearBtnContainer.style.display = "block";
     }
+}
 
-    // if (localStorage.getItem(current)) {
-    //     clearBtn.textContent = `Clear ${current} list`;
-    //     clearBtn.style.display = "block";
-    // }
-
-
-
-
-//     if (localStorage.getItem('currentRequest') === "watched" || localStorage.getItem('currentRequest') === "queue") {
-//     clearBtn.style.display = "block";
-// }
+function handleClearBtn() {
+    save(currentValue, []);
+    refs.filmListRef.innerHTML = '';
+    refs.clearBtnContainer.style.display = "none";
+    message.messageAboutLibrary();
 }
 
 
+refs.clearBtn.addEventListener('click', handleClearBtn);
 
-// refs.libraryHeaderBtn.addEventListener('click', listner);
 
 
 
